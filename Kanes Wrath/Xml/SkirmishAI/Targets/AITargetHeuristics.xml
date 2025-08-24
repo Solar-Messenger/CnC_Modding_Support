@@ -160,23 +160,29 @@
     />
 
   <!--Enemy Function Targets by Priority then Distance-->
+	
+  <!--NOTE: <PrioritizedKindOf tags are deprecated and refuse to be compiled. Place their params into VitalKindOf-->
 
   <AITargetingHeuristic
     id="PowerKillHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Structure">
-    <PrioritizedKindOf>FS_POWER</PrioritizedKindOf>
+    ReturnTargetType="Structure" 
+	VitalKindOf="FS_POWER CONSTRUCTION_YARD"
+	/>
+	<!--<PrioritizedKindOf>FS_POWER</PrioritizedKindOf>
     <PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic> -->
 
   <AITargetingHeuristic
     id="ProductionKillHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Structure">
-    <PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
+    ReturnTargetType="Structure"
+	VitalKindOf="FS_WAR_FACTORY FS_BARRACKS FS_AIR_FIELD"
+	/>
+	<!--<PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
     <PrioritizedKindOf>FS_BARRACKS</PrioritizedKindOf>
     <PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic> -->
 
   <AITargetingHeuristic
     id="EconomyKillHeuristic"
@@ -186,12 +192,14 @@
     ForbiddenKindOf=""
     />
 
-  <AITargetingHeuristic
+	<AITargetingHeuristic
     id="ConstructionKillHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Structure">
-    <PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
-  </AITargetingHeuristic>
+    ReturnTargetType="Structure"
+	VitalKindOf="CONSTRUCTION_YARD"
+	/>
+	<!--<PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
+  </AITargetingHeuristic> -->
 
   <!--Friendly Targets by Distance-->
   
@@ -281,38 +289,44 @@
   <AITargetingHeuristic
     id="EngineerHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Engineer">
-    <PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
+    ReturnTargetType="Engineer"
+	VitalKindOf="CONSTRUCTION_YARD FS_WAR_FACTORY FS_AIR_FIELD FS_TECH_CENTER FS_RADAR FS_BARRACKS" 
+	/>
+    <!--<PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
     <PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_TECH_CENTER</PrioritizedKindOf>
     <PrioritizedKindOf>FS_RADAR</PrioritizedKindOf>
     <PrioritizedKindOf>FS_BARRACKS</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic> -->
 
   <AITargetingHeuristic
     id="CommandoHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Engineer">
-    <PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
+    ReturnTargetType="Engineer" 
+	VitalKindOf="CONSTRUCTION_YARD FS_WAR_FACTORY FS_AIR_FIELD FS_TECH_CENTER FS_RADAR FS_BARRACKS"
+	/>
+	<!--<PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
     <PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_TECH_CENTER</PrioritizedKindOf>
     <PrioritizedKindOf>FS_RADAR</PrioritizedKindOf>
     <PrioritizedKindOf>FS_BARRACKS</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic> -->
 
   <AITargetingHeuristic
     id="SuperweaponHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Superweapon">
-    <PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
+    ReturnTargetType="Superweapon"
+	VitalKindOf="FS_AIR_FIELD FS_WAR_FACTORY FS_TECH_CENTER FS_RADAR FS_POWER FS_BARRACKS"
+	/>
+	<!--<PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
     <PrioritizedKindOf>FS_TECH_CENTER</PrioritizedKindOf>
     <PrioritizedKindOf>FS_RADAR</PrioritizedKindOf>
     <PrioritizedKindOf>FS_POWER</PrioritizedKindOf>
     <PrioritizedKindOf>FS_BARRACKS</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic>-->
 
   <AITargetingHeuristic
     id="ExpansionHeuristic"
@@ -353,18 +367,21 @@
    />
 
   <!--Deprecated - Try not to use these-->
+  <!--NOTE: I have no idea why that was mentioned here. I assume the devs also meant the PrioritizedKindOf tags which I updated below (VitalKindOf) regardless-->
 
   <AITargetingHeuristic
     id="CaptureHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Engineer">
-    <PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
+    ReturnTargetType="Engineer" 
+	VitalKindOf="CONSTRUCTION_YARD FS_WAR_FACTORY FS_AIR_FIELD FS_TECH_CENTER FS_RADAR FS_BARRACKS"
+	/>
+    <!--<PrioritizedKindOf>CONSTRUCTION_YARD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
     <PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
     <PrioritizedKindOf>FS_TECH_CENTER</PrioritizedKindOf>
     <PrioritizedKindOf>FS_RADAR</PrioritizedKindOf>
     <PrioritizedKindOf>FS_BARRACKS</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic>-->
 
   <!--Returns the closest friendly structure; temporary-->
   <AITargetingHeuristic
@@ -453,23 +470,27 @@
   <AITargetingHeuristic
     id="ProductionHaltHeuristic"
     HeuristicType="Prioritized"
-    ReturnTargetType="Structure">
-    <PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
+    ReturnTargetType="Structure" 
+	VitalKindOf="FS_WAR_FACTORY FS_BARRACKS FS_AIR_FIELD"
+	/>
+    <!--<PrioritizedKindOf>FS_WAR_FACTORY</PrioritizedKindOf>
     <PrioritizedKindOf>FS_BARRACKS</PrioritizedKindOf>
     <PrioritizedKindOf>FS_AIR_FIELD</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic> -->
 
-  <!--Returns the most isolated enemy Harvester, then Refinery, then Silo--> 
-  <AITargetingHeuristic
-    id="ResourceSqueezeHeuristic"
-    HeuristicType="Prioritized"
-    ReturnTargetType="Structure">
+  <!--Returns the most isolated enemy Harvester, then Refinery, then Silo-->
+	<AITargetingHeuristic
+	  id="ResourceSqueezeHeuristic"
+	  HeuristicType="Prioritized"
+	  ReturnTargetType="Structure" 
+	  VitalKindOf="HARVESTER SUPPLY_GATHERING_CENTER FS_MONEY_STORAGE"
+	  />
     <!--
     <PrioritizedKindOf>HARVESTER</PrioritizedKindOf>
-    -->
+    
     <PrioritizedKindOf>SUPPLY_GATHERING_CENTER</PrioritizedKindOf>
     <PrioritizedKindOf>FS_MONEY_STORAGE</PrioritizedKindOf>
-  </AITargetingHeuristic>
+  </AITargetingHeuristic>-->
 
   <AITargetingHeuristic
     id="NeutralTechHeuristic"
